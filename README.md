@@ -10,13 +10,13 @@
 
 ## PREVIEW
 
-[Hit The Beat Screenshots](./public/images/beat-drum.png) [](./public/images/beat-metal.png) [](./public/images/beat-neon.png) [](./public/images/beat-pause.png)
+[Hit The Beat Screenshots](./public/images/beat-drum.png) 
 
-[Hit The Math Screenshot](./public/images/math1.png) [](./public/images/math2.png) [](./public/images/math3.png)
+[Hit The Math Screenshot](./public/images/math1.png) 
 
 
 ## LIVE DEMO
-[Play the game here]([https://your-link.com](https://hit-the-beat.netlify.app/rhythm))
+[Play the game here](https://hit-the-beat.netlify.app/rhythm)
 
 
 #### ---
