@@ -16,7 +16,7 @@
 
 
 ## LIVE DEMO
-[Play the game here](https://your-link.com)
+[Play the game here]([https://your-link.com](https://hit-the-beat.netlify.app/rhythm))
 
 
 #### ---
