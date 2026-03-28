@@ -1,0 +1,569 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Arvo';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/arvo/v23/tDbD2oWUg0MKqScQ7Z7o_vo.woff2") format('woff2');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.game-content {  
+  position: relative;
+  background: var(--bg);
+  font-family: "Arvo";
+  text-align: center;
+  letter-spacing: 2px;  
+  margin: 0;
+}
+
+.game-page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.theme-retro,
+.theme-retro .start-btn,
+.theme-retro #level,
+.theme-retro #beat,
+.rhythm-field-retro,
+.rhythm-field-retro select {
+  text-align: center;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* ========================== NAV and SETTINGS and FOMRS ========================== */
+.nav {
+  display: flex;
+  position: fixed;
+  align-content: center;
+  justify-content: left;
+  width: 20%;
+  margin: 0px;
+  padding: 2% 2%;
+  z-index: 1000;
+}
+
+/* FORMS: MODE, LEVELS and BEATS */
+fieldset {
+  border-radius: 8px;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 0 3px 2px 3px;
+}
+.field-mode legend {
+  width: 60%;
+}
+
+legend {  
+  color: #DBEDF3;
+  font-size: clamp(0.5rem, 1.5vw, 0.7rem);
+  width: 80%;
+  padding-left: 3px;
+}
+
+select {
+  background: none;
+  color: #dbedf3;
+  text-align: center;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 0px 5px;
+  margin-top: 0px;
+
+  /* no select arrow on the side */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+.setting-group select,
+.theme-retro .setting-group select {
+  border: var(--fieldset-border);
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+}
+
+/* Floating gear button/toggle */
+.settings-toggle {
+  position: fixed;
+  right: 1%;
+  font-size: clamp(3vh, 3vw, 2.5rem);
+  background: transparent;
+  border: none;
+  color: #DBEDF3;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 1000;
+}
+
+/* HOVER toggle */
+.settings-toggle:hover {
+  transform: rotate(45deg) scale(1);
+}
+
+/* SPINNING toggle */
+.settings-toggle.spinning {
+  animation: spinGear 1.2s linear infinite;
+}
+
+/* SETTINGS PANEL */
+.settings-panel {
+  position: absolute;
+  top: 50px;
+  justify-items: left;
+  background: rgba(0, 0, 0, 0.3);
+  color: #dbedf3;
+  border-radius: 12px;
+  width: 230px; 
+  height: 270px;
+  padding: 20px;
+  animation: slideIn 0.3s ease forwards;
+  z-index: 1002;
+}
+
+.setting-group {
+  display: flex;
+  flex-direction: column;
+  color: var(--level-indicator);
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  text-align: left;
+  line-height: 15px;
+  padding: 2px 0;
+  margin-bottom: 15px;
+}
+
+.setting-group label {
+  padding: 2px 0;
+}
+
+.setting-group input[type="range"] {
+  border-radius: 25px;
+  margin-top: 5px;
+}
+
+/* Input styling for each Theme */
+.theme-drum .setting-group input[type="range"],
+.theme-tables .setting-group input[type="range"] {
+  accent-color: #DA0463;
+}
+.theme-metal .setting-group input[type="range"] {
+  accent-color: #ff006f;
+}
+.theme-neon .setting-group input[type="range"] {
+  accent-color: var(--neon-blue);
+}
+.theme-retro .setting-group input[type="range"] {
+  accent-color: orangered;
+}
+
+
+/* HAPTICS */
+.haptics {
+  text-align: left;
+  left: 0px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.haptics legend {
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+}
+.theme-retro .haptics legend {
+  font-size: clamp(0.3rem, 2vw, 0.5rem);
+}
+
+.toggle {
+  display: flex;
+  position: relative;
+  width: 44px;
+  height: 24px;
+  margin-top: 5px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #404B69;
+  border-radius: 24px;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.3s;
+  box-shadow: inset 0 0 5px #000;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #DBEDF3;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* Haptics ON - Slider styling for each theme */
+.toggle input:checked + .slider,
+.toggle input:checked + .slider {
+  background: var(--haptics-slider-On);
+  box-shadow: var(--haptics-slider-On-shadow);
+}
+
+.toggle input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+.theme-neon .slider::before {
+  background-color: #000;
+}
+.theme-neon .field-haptics legend {
+  color: var(--neon-blue);
+}
+
+.theme-retro .haptics legend {
+  
+  padding: 0;
+}
+.theme-retro .slider,
+.theme-retro .slider::before {
+  border-radius: 0;
+}
+
+.theme-retro .toggle input:checked + .slider {
+  box-shadow:
+     -2px 0 yellow,   /* left */
+     2px 0 yellow,   /* right */
+     0 -2px yellow,  /* top */
+     0  2px yellow;  /* bottom */
+}
+
+
+/* Blur background */
+.game-page-content.blurred {
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Overlay */
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+/* PAUSED text */
+.paused-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(1.8rem, 4vw, 5rem);
+  letter-spacing: 8px;
+  font-weight: bold;
+  color: #00fff7;
+  text-shadow:
+    0 2px 2px #00fff7,
+    0 2px 2px #00fff7,
+    0 2px 2px #00fff7,
+    0 2px 2px #00fff7;
+  animation: neonPulse 1.5s infinite alternate;
+  margin: 20px auto;
+  z-index: 1002;
+}
+
+/* COUNTDOWN text */
+.countdown-text-wrap {
+  position: fixed;
+  text-align: center;
+  align-content: center;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: clamp(5rem, 9vw, 8rem);
+  height: clamp(5rem, 9vw, 8rem);
+  border: 3px solid #00fff7;
+  border-radius: 50%;
+  z-index: 1001;
+}
+
+.countdown-text {
+  position: relative;
+  transform: translate(-50%, -50%);
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: bold;
+  color: #00fff7;
+  padding-left: 4px;
+  text-shadow:
+    0 2px 2px #00fff7,
+    0 2px 2px #00fff7,
+    0 2px 2px #00fff7;
+  animation: popScale 0.6s ease;
+}
+
+
+/* ======================= GAME content ======================= */
+.anim-game-content {
+  animation: pageFade 0.5s ease;
+}
+
+#title {
+  font-size: clamp(2rem, 5vw, 5rem);
+  letter-spacing: 4px;
+  color: var(--title-text);
+  text-shadow: var(--title-shadow);  
+  padding: 20px;
+  margin: 0;
+}
+.theme-retro #title {
+  font-size: clamp(1.2rem, 3vw, 4rem);
+}
+
+.start-btn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+.start-btn {
+  background: var(--str-btn-bg);
+  font-size: clamp(1.6vh, 1.6vw, 2rem);
+  letter-spacing: 3px;
+  color: var(--str-btn-text);
+  box-shadow: var(--str-btn-shadow);
+  border: var(--str-btn-border);
+  border-radius: var(--str-btn-radius);
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: 
+    opacity 0.3s ease, 
+    transform 0.2s ease;
+    z-index: 1000;
+}
+/* Retro Start button */
+.theme-retro .start-btn {
+  font-size: clamp(1.3vh, 1.3vw, 2rem);
+}
+
+.start-btn:hover {
+  background: var(--str-btn-bg-hover);
+  color: var(--str-btn-text-hover);
+  box-shadow: var(--str-btn-shadow-hover);
+}
+
+.theme-drum .start-btn:active,
+.theme-metal .start-btn:active,
+.mode-tables .start-btn:active {
+  box-shadow: none;
+  margin-top: 5px; 
+  margin-left: 5px;
+}
+
+.start-btn.hidden {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
+.p-score, 
+.p-score-math {
+  justify-self: center;
+  font-size: clamp(1rem, 2vw, 2rem);
+  color: var(--score-text);
+  text-shadow: var(--score-text-shadow);
+  width: fit-content;
+  border-radius: var(--score-border-radius);
+  pointer-events: none; 
+  padding: 3px 10px;
+  z-index: 1;
+}
+/* Retro Theme score */
+.theme-retro .p-score {
+  font-size: clamp(1.2vh, 1.2vw, 1.5rem);
+}
+/* Math score */
+.p-score-math {
+font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.score-fade {
+  opacity: 0.1;
+  transition: opacity 0.3s ease;
+}
+
+p.score-inner {
+  display: inline-block;
+}
+
+/* AUTO display indicator */
+.level-indicator-wrap {
+  align-items: center; 
+  align-content: center;
+  height: 30px;
+  margin: 20px 0 10px;
+  z-index: -1;
+}
+
+.level-indicator {
+  color: var(--level-indicator); 
+  font-size: clamp(0.8rem, 1.2vw, 1.9rem);
+  font-weight: bold;
+}
+
+.level-indicator-off {
+  opacity: 0;
+}
+
+/* DRUM PADS container */
+.container-wrap {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  margin: 0;
+}
+
+/* COMBO */
+.combo {
+  position: absolute;
+  justify-content: center;
+  justify-items: center;
+  width: clamp(150px, 40vw, 300px);
+  top: 40%;
+  left: 50%;
+  transition: transform 0.15s;
+  font-size: clamp(2vw, 2vh, 2rem);
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+.combo-warm {
+  color: #ffe066;
+  text-shadow: 0 0 10px #ffe066;
+}
+.combo-hot {
+  color: #ff9f1c;
+  text-shadow:
+    0 0 10px #ff9f1c,
+    0 0 25px #ff6f00;
+}
+.combo-warm-anim,
+.combo-hot-anim {
+  animation: combo-pop 0.6s ease-out forwards;
+}
+
+.combo-mega {
+  color: orangered;
+  text-shadow:
+    0 0 10px orangered,
+    0 0 25px orangered,
+    0 0 45px orangered; 
+}
+.combo-mega-anim {
+  animation: combo-shake 0.6s infinite alternate;
+}
+
+.combo-super {
+  color: rgba(255,215,0,0.8);
+  text-shadow:
+    0 0 10px rgba(255,215,0,0.8),
+    0 0 25px rgba(255,215,0,0.8),
+    0 0 45px rgba(255,215,0,0.8); 
+}
+.combo-super-anim {
+  animation: super-pulse 0.6s infinite alternate;
+}
+
+/* CORRECT answer light-up */
+.drum.correct,
+.math-drum.correct,
+.p-score.correct,
+.p-score-math.correct {
+  border-color: var(--correct-border);
+  box-shadow: var(--correct-box-shadow);
+}
+
+/* Correct answer reveal in tables mode */
+.math-drum.pressed {
+  background: var(--drum-pressed-bg) !important;
+  border-color: var(--drum-pressed-border);
+  box-shadow: var(--drum-pressed-box-shadow);
+  transform: scale(1.1);
+}
+
+/* wrong answer light-up */
+.drum.wrong,
+.math-drum.wrong,
+.p-score.wrong,
+.p-score-math.wrong {
+  border-color: var(--wrong-border);
+  box-shadow: var(--wrong-box-shadow);
+  animation: shake 0.25s ease-in-out;
+  
+}
+
+/* footer */
+footer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  color: var(--footer-text);
+  text-shadow: var(--footer-text-shadow);
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+/* SCREEN SIZES */
+@media only screen and  (max-width: 1100px) {
+  #title { padding: 5% 0; margin: 0; }
+  .theme-drum .field-level,
+  .theme-metal .field-level,
+  .theme-neon .field-level { position: absolute; top: -70%; left: -54%;}
+  .theme-drum .field-beat,
+  .theme-metal .field-beat,
+  .theme-neon .field-beat { position: absolute; top: -70%; right: -54%;}
+}
+
+@media only screen and (max-width: 550px) and (orientation: portrait) {
+  #title { padding-top: 15%; }
+  .container-wrap {padding: 20px 0px;}
+  .level-indicator-wrap {margin: 10px 0 0;}
+}

@@ -1,0 +1,284 @@
+
+:root {
+    --neon-pink: #ff2bdc;
+    --neon-blue: #00f7ff;
+    --neon-green: #00ff9c;
+    --neon-red: #ff004c;
+    --neon-purple: #8f00ff;
+}
+
+.theme-drum {
+    --bg: #283149;
+
+    --fieldset-border: 1px solid #DBEDF3;
+    --haptics-slider-On: #DA0463;
+    --haptics-slider-On-shadow: 0 0 2px #dbedf3;
+    
+    --title-text: #fefefe;
+    --title-shadow: 3px 0 #DA0463;
+    
+    --str-btn-bg: #DA0463;
+    --str-btn-text: #fefefe;
+    --str-btn-shadow: 2px 2px #fefefe;
+    --str-btn-border: none;
+    --str-btn-radius: 10px;
+    --str-btn-bg-hover: #fefefe;
+    --str-btn-text-hover: #DA0463;
+    --str-btn-shadow-hover: 2px 2px #DA0463;
+    
+    --score-text: #fefefe;
+    --score-text-shadow: none;
+    --score-border-radius: 10px;
+    --level-indicator: #fefefe;
+
+    --pad-wrap-bg: #1d1c1c;
+    --pad-wrap-border: 8px solid;
+    --pad-wrap-border-top: #8c909d;
+    --pad-wrap-border-bottom: #8c909d;
+    --pad-wrap-border-left: #404b68;
+    --pad-wrap-border-right: #404b68;
+    --pad-wrap-box-shadow: none;
+    --pad-wrap-radius: 50%;
+
+    --drum-bg: #fefefe;
+    --drum-border: 5px solid #404B68;
+    --drum-box-shadow: none;
+    --drum-radius: 50%;
+
+    --drum-pressed-bg: #fefefe;
+    --drum-pressed-border: 6px solid rgba(64, 75, 104, 0.7);
+    --drum-pressed-box-shadow: 0px 0px 15px 5px #DBEDF3;
+    --correct-border: var(--neon-green);
+    --correct-box-shadow: 0 0 15px 5px var(--neon-green),
+                          0 0 35px rgba(0, 255, 156, 0.8);
+    --wrong-border: var(--neon-red);
+    --wrong-box-shadow: 0 0 15px var(--neon-red),
+                        0 0 35px rgba(255, 0, 76, 0.8);
+    
+    --footer-text: #DBEDF3;
+    --footer-text-shadow: none;
+}
+
+.theme-metal {
+    --bg: linear-gradient(hsl(0, 0%, 10%)20%, hsl(224, 24%, 40%) 90%);
+    
+    --fieldset-border: 1px solid #DBEDF3;
+    --haptics-slider-On: rgb(255, 0, 111);
+    --haptics-slider-On-shadow: 1px 1px hsl(0, 0%, 10%);
+    
+    --title-text: #495388;
+    --title-shadow: 2px 3px 2px rgb(255, 0, 111);
+
+    --str-btn-bg: linear-gradient(0deg, hsl(0, 0%, 10%) 20%, hsl(224, 24%, 40%) 90%);
+    --str-btn-text: rgba(254, 254, 254, 0.7);
+    --str-btn-shadow: 2px 2px rgba(254, 254, 254, 0.7);
+    --str-btn-border: 1px groove hsl(0, 0%, 10%);
+    --str-btn-radius: 10px;
+    --str-btn-bg-hover: linear-gradient( hsl(0, 0%, 10%)20%, hsl(224, 24%, 40%) 90%);
+    --str-btn-text-hover: rgb(255, 0, 111);
+    --str-btn-shadow-hover: 1px 1px rgb(255, 0, 111);
+    
+    --score-text: #dbedf3cc;
+    --score-text-shadow: 3px 3px #0a0a14;
+    --score-border-radius: 10px;
+    --level-indicator: rgba(219, 237, 243, 0.8);
+
+    --pad-wrap-bg: #1d1c1c;
+    --pad-wrap-border: 5px solid;
+    --pad-wrap-border-top: #404b68;
+    --pad-wrap-border-bottom: #0a0a14;
+    --pad-wrap-border-left: #404b68;
+    --pad-wrap-border-right: #0a0a14;
+    --pad-wrap-box-shadow: none;
+    --pad-wrap-radius: 50%;
+
+    --drum-bg: linear-gradient(140deg, hsl(224, 24%, 40%) 20%, hsl(0, 0%, 10%) 90%);
+    --drum-border: 4px solid #404B69;
+    --drum-box-shadow: none;
+    --drum-radius: 50%;
+
+    --drum-pressed-bg: ;
+    --drum-pressed-border: 3px solid #0026ff;
+    --drum-pressed-box-shadow: 0 0 35px rgba(0, 42, 255, 1);
+    --correct-border: var(--neon-green);
+    --correct-box-shadow: 0 0 15px var(--neon-green),
+                          0 0 35px rgba(0, 255, 156, 0.8);
+    --wrong-border: var(--neon-red);
+    --wrong-box-shadow: 0 0 15px var(--neon-red),
+                        0 0 35px rgba(255, 0, 76, 0.8);
+
+    --footer-text: rgba(219, 237, 243, 1);
+    --footer-text-shadow: 3px 3px #0a0a14;
+}
+
+.theme-neon {
+    --bg: radial-gradient(circle at top, #1b0033 0%, #05010a 60%);
+
+    --fieldset-border: 1px solid var(--neon-purple);
+    --haptics-slider-On: var(--neon-blue);
+    --haptics-slider-On-shadow: 0 0 2px var(--neon-blue);
+
+    --title-text: var(--neon-pink);
+    --title-shadow: 1px 1px 3px var(--neon-pink), 5px 5px 15px var(--neon-purple);
+
+    --str-btn-bg: transparent;
+    --str-btn-text: var(--neon-purple);
+    --str-btn-shadow: 1px 1px 15px rgba(0, 247, 255, 0.5);
+    --str-btn-border: 2px solid var(--neon-blue);
+    --str-btn-radius: 10px;
+    --str-btn-bg-hover: rgba(0, 247, 255);
+    --str-btn-text-hover: var(--neon-pink);
+    --str-btn-shadow-hover: 2px 2px 25px var(--neon-pink);
+
+    --score-text: var(--neon-green);
+    --score-text-shadow: 2px 2px 25px var(--neon-green);
+    --score-border-radius: 10px;
+    --level-indicator: var(--neon-blue);
+
+    --pad-wrap-bg: radial-gradient(circle at top, #1b0033 0%, #05010a 60%);
+    --pad-wrap-border: 10px groove;
+    --pad-wrap-border-top: var(--neon-purple);
+    --pad-wrap-border-bottom: var(--neon-purple);
+    --pad-wrap-border-left: var(--neon-purple);
+    --pad-wrap-border-right: var(--neon-purple);
+    --pad-wrap-box-shadow: 5px 5px 35px rgba(143, 0, 255, 0.6);
+    --pad-wrap-radius: 50%;
+
+    --drum-bg: rgba(0, 247, 255, 0.03);
+    --drum-border: 3px solid var(--neon-blue);
+    --drum-box-shadow: 0 0 10px var(--neon-blue), 0 0 30px rgba(0, 247, 255, 0.7);
+    --drum-radius: 50%;
+
+    --drum-pressed-bg: rgba(0, 247, 255, 0.5);
+    --drum-pressed-border: 3px solid var(--neon-pink);
+    --drum-pressed-box-shadow: 0 0 25px var(--neon-pink), 0 0 50px rgba(255, 43, 220, 0.8);
+    --correct-border: var(--neon-green);
+    --correct-box-shadow: 0 0 15px var(--neon-green),
+                          0 0 35px rgba(0, 255, 156, 0.8);
+    --wrong-border: var(--neon-red);
+    --wrong-box-shadow: 0 0 15px var(--neon-red),
+                        0 0 35px rgba(255, 0, 76, 0.8);
+
+    --footer-text: var(--neon-purple);
+    --footer-text-shadow: 1px 1px 3px var(--neon-purple), 2px 2px 10px var(--neon-pink);
+}
+
+.theme-retro {
+    --bg: rgba(5, 5, 5, 0.95);
+
+    --fieldset-border: 1px solid orangered;
+    --haptics-slider-On: orangered;
+    --haptics-slider-On-shadow: ;
+
+    --title-text: orangered;
+    --title-shadow: 3px 0 yellow;
+
+    --str-btn-bg: orange;
+    --str-btn-text: rgb(0, 0, 0);
+    --str-btn-shadow: -5px 0 brown,   /* left */
+                      5px 0 brown,   /* right */
+                      0 -5px brown,  /* top */
+                      0  5px brown;  /* bottom */;
+    --str-btn-border: 4px solid #1b0033;
+    --str-btn-radius: 0px;
+    --str-btn-bg-hover: orangered;
+    --str-btn-text-hover: white;
+    --str-btn-shadow-hover: -5px 0 orange,   /* left */
+                            5px 0 orange,   /* right */
+                            0 -5px orange,  /* top */
+                            0  5px orange;  /* bottom */;
+    
+    --score-text: yellow;
+    --score-text-shadow: none;
+    --score-border-radius: 0px;
+    --level-indicator: yellow;
+
+    --pad-wrap-bg: #050505;
+    --pad-wrap-border: 9px groove;
+    --pad-wrap-border-top: orangered;
+    --pad-wrap-border-bottom: orangered;
+    --pad-wrap-border-left: orangered;
+    --pad-wrap-border-right: orangered;
+    --pad-wrap-box-shadow:  -11px 0 rgba(255, 165, 0, 0.7),   /* left */
+                            11px 0 orange,   /* right */
+                            0 -11px rgba(255, 165, 0, 0.7),  /* top */
+                            0  11px orange;  /* bottom */;
+    --pad-wrap-radius: 0px;
+
+    --drum-bg: #000000;
+    --drum-border: 6px solid rgba(153, 121, 4, 0.3);
+    --drum-box-shadow: -7px 0 burlywood,   /* left */
+                       7px 0 rgba(222, 184, 135, 0.5), /* right */
+                       0 -7px rgb(222, 184, 135),  /* top */
+                       0  7px rgba(222, 184, 135, 0.5);  /* bottom */;
+    --drum-radius: 0%;
+    
+    --drum-pressed-bg: ;
+    --drum-pressed-border: 8px solid orangered;
+    --drum-pressed-box-shadow: 0 10px rgba(255, 165, 0, 1),
+                           0 -10px rgba(255, 165, 0, 0.7),
+                           10px 0 rgba(255, 165, 0, 1),
+                           -10px 0 rgba(255, 165, 0, 0.7);
+    --correct-border: green;
+    --correct-box-shadow: 0 10px greenyellow,
+                          0 -10px greenyellow,
+                          10px 0 greenyellow,
+                          -10px 0 greenyellow;;
+    --wrong-border: red;
+    --wrong-box-shadow: 0 10px red,
+                        0 -10px red,
+                        10px 0 red,
+                        -10px 0 red;
+
+    --footer-text: yellow;
+    --footer-text-shadow: 3px 0 orangered;
+}
+
+.theme-tables {
+    --bg: linear-gradient(135deg, #1e1e2f, #1f1f4e);
+
+    --fieldset-border: 1px solid #DBEDF3;
+    --haptics-slider-On: #DA0463;
+    --haptics-slider-On-shadow: 0 0 2px #dbedf3;
+
+    --title-text: #DBEDF3;
+    --title-shadow: 3px 0 #DA0463;
+
+    --score-text: #dbedf3;
+    --score-text-shadow: none;
+    --score-border-radius: 10px;
+    --level-indicator: #dbedf3;
+
+    --str-btn-bg: #DA0463;
+    --str-btn-text: #fefefe;
+    --str-btn-shadow: 2px 2px #fefefe;
+    --str-btn-border: none;
+    --str-btn-radius: 10px;
+    --str-btn-bg-hover: #fefefe;
+    --str-btn-text-hover: #DA0463;
+    --str-btn-shadow-hover: 2px 2px #DA0463;
+    
+    --pad-wrap-bg: ;
+    --pad-wrap-border: ;
+    --pad-wrap-radius: ;
+    
+    --drum-bg: #282c44;
+    --drum-border: 3px solid #dbedf3;
+    --drum-box-shadow: 0 0 15px rgba(0,247,255,0.3);
+    --drum-radius: 20px;
+    
+    --drum-pressed-bg: rgba(0, 255, 156, 0.8);
+    --drum-pressed-border: var(--neon-green);
+    --drum-pressed-box-shadow: 0 0 15px var(--neon-green),
+                               0 0 35px ;
+    --correct-border: var(--neon-green);
+    --correct-box-shadow: 0 0 15px var(--neon-green),
+                          0 0 35px rgba(0, 255, 156, 0.8); 
+    --wrong-border: var(--neon-red);
+    --wrong-box-shadow: 0 0 15px var(--neon-red),
+                        0 0 35px rgba(255, 0, 76, 0.8);
+    
+    --footer-text: #DBEDF3;
+    --footer-text-shadow: none;
+}
+

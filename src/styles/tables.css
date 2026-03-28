@@ -1,0 +1,143 @@
+/* ====== TABLES MODE ====== */
+.pad-hidden {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.pad-visible {
+  opacity: 1;
+  transform: scale(1);
+  transition: 
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.math-container {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30%;
+  width: clamp(300px, 40vw, 550px);
+  height: clamp(300px, 40vw, 550px);  
+  aspect-ratio: 1;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.math-container-center {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 70%;
+    z-index: 1000;
+}
+
+.math-drum {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--drum-radius);
+  font-size: clamp(3vw, 3vh, 2rem);
+  background: var(--drum-bg);
+  border: var(--drum-border);
+  color: var(--str-btn-text);
+  box-shadow: var(--drum-box-shadow);
+  transition: transform 0.2s ease, 
+              box-shadow 0.2s ease;
+}
+
+.math-drum:hover {
+  transform: scale(1.05);
+}
+
+.math-drum.inactive {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.math-question {
+  color: var(--str-btn-text);
+  font-size: clamp(3.5vw, 3.5vh, 2rem);
+  font-weight: bold;
+  animation: question-pop 0.2s ease;
+}
+
+/* CENTER of Math container */
+.math-container-center select {
+  border: none;
+}
+
+
+/*  TIMER BAR  */
+.timer-wrapper {
+  width: 100px;
+  height: 10px;
+  margin: 15px auto;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,255,255,0.2);
+}
+
+.timer-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #00f7ff, #ff00e0);
+  /*animation: shrinkTimer 5s linear forwards;*/
+}
+
+.timer-wrapper.normal .timer-bar {
+  background: linear-gradient(90deg, #00f7ff, #ff00e0);
+}
+
+.timer-wrapper.danger .timer-bar {
+  background: linear-gradient(90deg, #ff0044, #ff8800);
+}
+
+/* Shake animation 
+.timer-wrapper.danger {
+  animation: shakeTimer 0.3s ease-in-out infinite;
+}
+*/
+
+.timer-wrapper.paused .timer-bar {
+  animation-play-state: paused;
+}
+
+/* PERFECT BONUS */
+.perfect-text {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(3vw, 3vh, 2rem);
+  font-weight: bold;
+  color: #00ff88;
+  text-shadow: 0 0 10px #00ff88;
+  animation: perfectPop 0.6s ease-out forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* TIMEOUT MESSAGE */
+.timeout-text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(4vw, 4vh, 2rem);
+  font-weight: bold;
+  color: #ff0044;
+  text-shadow: 0 0 15px #ff0044;
+  animation: timeoutFlash 1.5s ease-out forwards;
+  pointer-events: none;
+  z-index: inherit;
+}
+

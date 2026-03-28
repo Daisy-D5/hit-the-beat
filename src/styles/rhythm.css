@@ -1,0 +1,333 @@
+/* ======= RHYTHM MODE =========== */
+.rhythm-container {
+  display: flex;
+  position: relative;  
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  border-radius: var(--pad-wrap-radius);
+  width: clamp(320px, 40vw, 650px);
+  height: clamp(320px, 40vw, 650px);  
+  background: var(--pad-wrap-bg);
+  border: var(--pad-wrap-border);
+  border-top-color: var(--pad-wrap-border-top);
+  border-bottom-color: var(--pad-wrap-border-bottom);
+  border-left-color: var(--pad-wrap-border-left);
+  border-right-color: var(--pad-wrap-border-right);
+  box-shadow: var(--pad-wrap-box-shadow);
+}
+
+.container-center {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+}
+
+.theme-metal .drum,
+.theme-neon .drum,
+.theme-retro .drum {
+  background-image: none !important;
+  font-size: 0rem !important;
+}
+
+.drum {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  background: var(--drum-bg);
+  border: var(--drum-border);
+  border-radius: var(--drum-radius);  
+  box-shadow: var(--drum-box-shadow);
+  width: 28%;
+  height: 28%;
+  margin: 5px;
+  z-index: 1000;
+}
+
+.h {
+  background-image: url("/images/tom1.png"); 
+  top: 1%;
+  left: 35%
+}
+
+.y {
+  background-image: url("/images/tom2.png");
+  top: 13.5%;
+  left: 8%;
+}
+
+.n {
+  background-image: url("/images/tom3.png");
+  top: 42.5%;
+  left: 2%;
+}
+
+.o {
+  background-image: url("/images/tom4.png");
+  top: 66%;
+  left: 20.5%;
+}
+
+.m {
+  background-image: url("/images/snare.png");
+  top: 66%;
+  right: 19%;
+}
+
+.r {
+  background-image: url("/images/crash.png");
+  top: 42.5%;
+  right: 0.5%;
+}
+
+.a {
+  background-image: url("/images/kick.png");
+  top: 13.5%;
+  right: 7.5%;
+}
+
+.drum.pressed {
+  background-color: var(--drum-pressed-bg);
+  border: var(--drum-pressed-border) !important;
+  box-shadow: var(--drum-pressed-box-shadow);
+}
+
+/* THEME DRUM */
+.theme-drum .drum {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: clamp(1.8rem, 4vw, 5rem);
+  font-weight: 900;
+  color: var(--str-btn-bg);
+  text-shadow: var(--str-btn-shadow);
+  text-align: center;
+}
+.theme-drum .h,
+.theme-drum .y,
+.theme-drum .a {
+    background-size: 70%;
+}
+.theme-drum .n, 
+.theme-drum .o,
+.theme-drum .m {
+  background-size: 50%;
+}
+.theme-drum .r {
+    background-size: 40%;
+}
+.theme-drum .h,
+.theme-drum .y,
+.theme-drum .n,
+.theme-drum .o {
+  color: var(--drum-bg);
+  text-shadow: var(--title-shadow);
+}
+
+/* THEME METAL */
+/* Metal theme NAV toggle */
+.rhythm-field-metal,
+.theme-metal .settings-toggle {
+  color: rgba(219, 237, 243, 0.9);
+  text-shadow: 1px 1px hsl(0, 0%, 0%);
+}
+
+.theme-metal .drum {
+  background-image: var(--drum-bg) !important;
+  border-top-color: var(--pad-wrap-border-top);
+  border-bottom-color: var(--pad-wrap-border-bottom);
+  border-left-color: var(--pad-wrap-border-left);
+  border-right-color: var(--pad-wrap-border-right);
+}
+
+
+/* THEME NEON */
+/* NAV and toggle and Forms */
+.rhythm-field-neon,
+.rhythm-field-neon legend,
+.rhythm-field-neon select,
+.theme-neon .settings-toggle,
+.theme-neon .field-level,
+.theme-neon .field-beat,
+.theme-neon legend,
+.theme-neon #level,
+.theme-neon #beat {
+  color: var(--neon-blue);
+  border-color: var(--neon-purple);
+}
+
+/*  Setting Panel */
+.theme-neon .setting-group select {
+  background-color: var(--neon-blue);
+  color: #000;
+}
+
+.neon-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.01),
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px,
+      transparent 1px
+    );
+  pointer-events: none;
+}
+
+.neon-drum {
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    filter 0.1s ease;
+  animation: neon-flicker 0.5s infinite alternate;
+  }
+
+/* idle = animation, interaction = no animation */
+.neon-drum.pressed {
+  background: var(--drum-pressed-bg);
+}
+
+
+/* THEME RETRO */
+/* NAV Settings and Toggle  */
+.rhythm-field-retro,
+.theme-retro .settings-toggle {
+  color: orangered;
+  text-shadow: 1px 0 yellow;   
+  border-color: orangered;
+}
+
+.rhythm-field-retro legend {
+  font-size: clamp(0.3rem, 1.5vw, 0.5rem);
+  color: orangered;
+  width: 60%;
+  padding: 0;
+}
+
+.rhythm-field-retro select {
+  border: none;
+  font-size: clamp(0.5rem, 2vw, 0.7rem);
+  color: yellow;
+  padding: 0;
+  margin-bottom: 2px;
+}
+
+.theme-retro .field-level,
+.theme-retro .field-beat {
+  color: orange;
+  border: 2px solid burlywood;
+  border-radius: 0px;
+  padding: 3px 0;
+}
+
+.theme-retro #level,
+.theme-retro #beat {
+  color: orange;
+  padding: 2px 0px;
+}
+
+.theme-retro legend {
+  color: yellow;
+  font-size:  clamp(0.8vw, 0.8vh, 1.5rem);
+  letter-spacing: 2px;
+  width: fit-content;
+  padding-left: 8px;
+}
+
+.theme-retro select {
+  font-size:  clamp(1vw, 1vh, 1.5rem);
+}
+
+.theme-retro .settings-panel {
+  color: yellow;
+}
+.theme-retro .setting-group {
+  font-size: clamp(0.3rem, 2vw, 0.5rem);
+}
+
+.theme-retro .start-btn:hover {
+  border: 3px solid #1b0033;
+  border-radius: 0%;
+}
+
+/* ~ alternative styling for start button ~
+.theme-retro .start-btn {
+  background-color: orange; 
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  clip-path: polygon(
+    15px 0,   // Top-left corner cut point 
+    calc(100% - 15px) 0, // Top-right cut point 
+    100% 15px, // Right-top cut point 
+    100% calc(100% - 15px), // Right-bottom cut point 
+    calc(100% - 15px) 100%, // Bottom-right cut point 
+    15px 100%, // Bottom-left cut point 
+    0 calc(100% - 15px), // Left-bottom cut point 
+    0 15px    // Left-top cut point 
+  );
+  letter-spacing: 1px;
+  border: 5px solid brown;
+  border-radius: 0px;
+  padding: 12px 24px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+*/
+
+.retro-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.05),
+      rgba(255,255,255,0.05) 2px,
+      transparent 6px
+    );
+  pointer-events: none;
+  animation: retro-flicker 0.15s infinite;
+}
+
+/*
+.retro-container {
+  filter: contrast(0.9) brightness(1);
+}
+*/
+
+.retro-drum {
+  width: 22%;
+  height: 22%;
+}
+
+.retro-container .h {
+  top: 2%;
+  left: 37.5%;
+}
+.retro-container .m {
+  top: 73%;
+}
+.retro-container .o {
+  top: 73%;
+}
+
+
+
+
+
+
+
