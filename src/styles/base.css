@@ -16,7 +16,6 @@ body {
 
 .game-content {  
   position: relative;
-  background: var(--bg);
   font-family: "Arvo";
   text-align: center;
   letter-spacing: 2px;  
@@ -26,6 +25,7 @@ body {
 .game-page-content {
   display: flex;
   flex-direction: column;
+  background: var(--bg);
   justify-content: space-between;
   width: 100%;
   min-height: 100vh;
